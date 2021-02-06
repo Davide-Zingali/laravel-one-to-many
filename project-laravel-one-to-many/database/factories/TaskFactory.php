@@ -9,6 +9,6 @@ $factory->define(Task::class, function (Faker $faker) {
     return [
         'title' => ($faker -> word),
         'description' => ($faker -> text($maxNbChars = 200)),
-        'priority' => ($faker -> rand(1, 5)),
+        'priority' => (rand(1, 5)),
     ];
 });
