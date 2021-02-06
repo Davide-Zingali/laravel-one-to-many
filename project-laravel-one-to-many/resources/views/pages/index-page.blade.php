@@ -5,6 +5,27 @@
         <h2>
             Main
         </h2>
+
+        <div>
+            <ul>
+                @foreach ($dipendente as $element)
+                    <li>
+                        Dipendente: {{$element -> name}}
+                        <ul>
+                            @foreach ($element -> Tasks as $item)
+                                <li>
+                                    Incarico: {{$item -> title}} <br>
+                                    Descrizione: {{$item -> description}}
+                                    (Nome: {{$item -> employee -> name}},
+                                    Cognome: {{$item -> employee -> lastname}});
+                                </li>
+                            @endforeach
+                            <br>
+                        </ul>               
+                    </li>
+                @endforeach
+            </ul>
+        </div>
     </main>
 
 @endsection
