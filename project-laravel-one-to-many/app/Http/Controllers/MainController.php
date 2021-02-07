@@ -32,20 +32,17 @@ class MainController extends Controller
 
         $arrayDipendenti = Employee::all();
 
+        // dd($arrayDipendenti);
+
         return view('pages.createEmployee-page', compact('arrayDipendenti'));
     }
     public function storeEmplo(request $request) {
-        // dd($request -> all());
-        $newIncarico = Task::make($request -> all());
 
-        $newDipendente = Employee::findOrFail($request -> employee_id);
-
-        $newIncarico -> Tasks() -> associate($newDipendente);
-
-        $newIncarico -> save();
+        Employee::create($request -> all());
 
         return redirect() -> route('index-employee');
     }
+    
 
     // task
     public function indexTask() {
@@ -57,5 +54,23 @@ class MainController extends Controller
     public function showTask($id) {
         $arrayIncarico = Task::findOrFail($id);
         return view('pages.showTask-page', compact('arrayIncarico'));
+    }
+
+    public function createTask() {
+        $arrayDipendenti = Employee::all();
+        return view('pages.createTask-page', compact('arrayDipendenti'));
+    }
+
+    public function storeTask(request $request) {
+        // dd($request -> all());
+        $newIncarico = Task::make($request -> all());
+
+        $newDipendente = Employee::findOrFail($request -> employee_id);
+
+        $newIncarico -> employee() -> associate($newDipendente);
+
+        $newIncarico -> save();
+
+        return redirect() -> route('index-task');
     }
 }

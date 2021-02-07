@@ -8,6 +8,11 @@
         <h2>
             Index Incarichi
         </h2>
+        <h2>
+            <a href="{{route('create-task')}}">
+                Add Task
+            </a>
+        </h2>
         <div>
             <ul>
                 @foreach ($arrayIncarichi as $element)

@@ -17,3 +17,6 @@ Route::post('/employee/store', 'MainController@storeEmplo') -> name('store-emplo
 Route::get('/task/index', 'MainController@indexTask') -> name('index-task');
 
 Route::get('/task/show/{id}', 'MainController@showTask') -> name('show-task');
+
+Route::get('/task/create', 'MainController@createTask') -> name('create-task');
+Route::post('/task/store', 'MainController@storeTask') -> name('store-task');
