@@ -3,3 +3,7 @@ body {
   color: white;
 }
 
+body li a {
+  color: greenyellow;
+}
+

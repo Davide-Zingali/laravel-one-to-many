@@ -3,19 +3,27 @@
     
     <main>
         <h2>
-            Main
+            Index Employee
         </h2>
 
         <div>
+            <button>
+                <a href="{{route('create-employee')}}">
+                    Add Element
+                </a>
+            </button>
             <ul>
-                @foreach ($dipendente as $element)
+                @foreach ($arrayDipendenti as $element)
                     <li>
-                        Dipendente: {{$element -> name}}
+                        <a href="{{route('show-employee', $element -> id)}}">
+                            Dipendente: {{$element -> name}}
+                        </a>
                         <ul>
                             @foreach ($element -> Tasks as $item)
                                 <li>
                                     Incarico: {{$item -> title}} <br>
-                                    Descrizione: {{$item -> description}}
+                                    Descrizione: {{$item -> description}} <br>
+                                    Prioritá: {{$item -> priority}}
                                     (Nome: {{$item -> employee -> name}},
                                     Cognome: {{$item -> employee -> lastname}});
                                 </li>
