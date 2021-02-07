@@ -10,6 +10,10 @@ use App\Task;
 
 class MainController extends Controller
 {
+    // home page
+    public function home() {
+        return view('pages.home-page');
+    }
 
     // employee
     public function indexEmplo() {
@@ -20,8 +24,8 @@ class MainController extends Controller
     }
 
     public function showEmplo($id) {
-        $arrayDipendenti = Employee::findOrFail($id);
-        return view('pages.showEmployee-page', compact('arrayDipendenti'));
+        $arrayDipendente = Employee::findOrFail($id);
+        return view('pages.showEmployee-page', compact('arrayDipendente'));
     }
 
     public function createEmplo() {
@@ -48,5 +52,10 @@ class MainController extends Controller
         $arrayIncarichi = Task::all();
         // dd($arrayIncarichi);
         return view('pages.indexTask-page', compact('arrayIncarichi'));
+    }
+
+    public function showTask($id) {
+        $arrayIncarico = Task::findOrFail($id);
+        return view('pages.showTask-page', compact('arrayIncarico'));
     }
 }

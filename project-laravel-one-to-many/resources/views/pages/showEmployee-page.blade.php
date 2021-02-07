@@ -4,9 +4,9 @@
     <main>
         <h2>Show Dipendente:</h2>
         <div>
-            <strong>Nome: </strong>{{$arrayDipendenti -> name}} <br>
-            <strong>Cognome: </strong>{{$arrayDipendenti -> lastname}} <br>
-            <strong>Data di nascita: </strong>{{$arrayDipendenti -> dateOfBirth}} <br>
+            <strong>Nome: </strong>{{$arrayDipendente -> name}} <br>
+            <strong>Cognome: </strong>{{$arrayDipendente -> lastname}} <br>
+            <strong>Data di nascita: </strong>{{$arrayDipendente -> dateOfBirth}} <br>
 
         </div>
         <ul>
@@ -14,7 +14,7 @@
                 Incarico:
             </h3>
             <div>
-                @foreach ($arrayDipendenti -> tasks as $item)
+                @foreach ($arrayDipendente -> tasks as $item)
                     <li>
                         <strong>Prioritá: </strong>{{$item -> priority}} <br>
                         <strong>Titolo: </strong>{{$item -> title}} <br>

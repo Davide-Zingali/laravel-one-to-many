@@ -3,6 +3,9 @@
     
     <main>
         <h2>
+            <a class="home" href="{{route('home')}}">HOME</a>
+        </h2>
+        <h2>
             Index Employee
         </h2>
 
