@@ -30,3 +30,6 @@ Route::post('/task/store', 'TaskController@storeTask') -> name('store-task');
 Route::get('/typology/index', 'TypologyController@indexTypology') -> name('index-typology');
 
 Route::get('/typology/show/{id}', 'TypologyController@showTypology') -> name('show-typology');
+
+Route::get('/typology/create', 'TypologyController@createTypology') -> name('create-typology');
+Route::post('/typology/store', 'TypologyController@storeTypology') -> name('store-typology');

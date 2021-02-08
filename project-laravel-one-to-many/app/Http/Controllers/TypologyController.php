@@ -8,8 +8,6 @@ use App\Typology;
 
 use App\Task;
 
-use App\Employee;
-
 class TypologyController extends Controller
 {
     public function indexTypology() {
@@ -18,8 +16,26 @@ class TypologyController extends Controller
 
         return view('pages.indexTypology-page', compact('arrayTipologiee'));
     }
+
     public function showTypology($id) {
         $arrayTipologia = Typology::findOrFail($id);
         return view('pages.showTypology-page', compact('arrayTipologia'));
+    }
+
+    public function createTypology() {
+
+        $arrayTasks = Task::all();
+        return view('pages.creareTypology-page', compact('arrayTasks'));
+    }
+    public function storeTypology(request $request) {
+
+        $newTypology = Typology::create($request -> all());
+
+        $newTask = Task::findOrFail($request -> get('typology_id'));
+
+        $newIncarico -> tasks() -> attach($newTypology);
+
+        $newIncarico -> save();
+        
     }
 }

@@ -3,6 +3,9 @@
 
     <main>
         <h2>
+            <a href="{{route('create-typology')}}">Add Typology</a>
+        </h2>
+        <h2>
             <a class="home" href="{{route('home')}}">HOME</a>
         </h2>
         <h2>Typologyes</h2>
