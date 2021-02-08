@@ -16,6 +16,12 @@
             </a>
         </h2>
 
+        <h2>
+            <a class='home' href="{{route('index-typology')}}">
+                Typology
+            </a>
+        </h2>
+
     </main>
 @endsection
 

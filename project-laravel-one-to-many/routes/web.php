@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 
 // home page
-Route::get('/home', 'MainController@home') -> name('home');
+Route::get('/home', function() {
+    return view('pages.home-page');
+}) -> name('home');
 
 
 // employee
@@ -25,3 +27,6 @@ Route::post('/task/store', 'TaskController@storeTask') -> name('store-task');
 
 
 // typology
+Route::get('/typology/index', 'TypologyController@indexTypology') -> name('index-typology');
+
+Route::get('/typology/show/{id}', 'TypologyController@showTypology') -> name('show-typology');
