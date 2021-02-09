@@ -25,17 +25,20 @@ class TypologyController extends Controller
     public function createTypology() {
 
         $arrayTasks = Task::all();
+
         return view('pages.creareTypology-page', compact('arrayTasks'));
     }
     public function storeTypology(request $request) {
 
-        $newTypology = Typology::create($request -> all());
+        // dd($request -> all());
+        $newTasksUtente = $request -> all();
 
-        $newTask = Task::findOrFail($request -> get('typology_id'));
+        $newTypology = Typology::create($newTasksUtente);
+        $newTask = Task::findOrFail($newTasksUtente['tasksArray']);
 
-        $newIncarico -> tasks() -> attach($newTypology);
+        $newTypology -> tasks() -> attach($newTask);
 
-        $newIncarico -> save();
+        return redirect() -> route('show-typology', $newTypology -> id);
         
     }
 }
