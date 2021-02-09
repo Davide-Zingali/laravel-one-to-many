@@ -16,6 +16,7 @@
                         <a href="{{route('show-typology', $item -> id)}}">
                             Nome: {{$item -> name}}                           
                         </a>
+                        <a href="{{route('edit-typology', $item -> id)}}"> - EDIT</a>
                     </li>
                     <br>
                 @endforeach

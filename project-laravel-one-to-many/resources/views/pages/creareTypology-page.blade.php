@@ -31,7 +31,7 @@
                 <br>
                 <br>
 
-                <input type="submit" value="Salva">
+                <input type="submit" value="Crea">
 
             </form>
         </div>

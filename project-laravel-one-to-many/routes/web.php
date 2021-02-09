@@ -33,3 +33,6 @@ Route::get('/typology/show/{id}', 'TypologyController@showTypology') -> name('sh
 
 Route::get('/typology/create', 'TypologyController@createTypology') -> name('create-typology');
 Route::post('/typology/store', 'TypologyController@storeTypology') -> name('store-typology');
+
+Route::get('/typology/edit/{id}', 'TypologyController@editTypology') -> name('edit-typology');
+Route::post('/typology/update/{id}', 'TypologyController@updateTypology') -> name('update-typology');

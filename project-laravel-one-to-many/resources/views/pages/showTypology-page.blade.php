@@ -2,6 +2,9 @@
 @section('content')
 
     <main>
+        <h2>
+            <a href="{{route('index-typology')}}">Home Typology</a>
+        </h2>
         <h3>Show Tipologia:</h3>
         <div>
             <strong>Nome: </strong>{{$arrayTipologia -> name}} <br>
