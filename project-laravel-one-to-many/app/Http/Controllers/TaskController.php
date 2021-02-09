@@ -31,6 +31,13 @@ class TaskController extends Controller
         // dd($request -> all());
         $newIncarico = Task::make($request -> all());
 
+        Validator::make($request->all(), [
+
+            'title' => 'required|min:5|max:20',
+            'description' => 'required',
+
+        ]) -> validate();
+
         $newDipendente = Employee::findOrFail($request -> get('employee_id'));
 
         $newIncarico -> employee() -> associate($newDipendente);

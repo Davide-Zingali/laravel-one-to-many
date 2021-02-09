@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Validator;
+
 use App\Typology;
 
 use App\Task;
@@ -30,8 +32,14 @@ class TypologyController extends Controller
     }
     public function storeTypology(request $request) {
 
-        // dd($request -> all());
         $newTasksUtente = $request -> all();
+
+        Validator::make($newTasksUtente, [
+
+            'name' => 'required|min:5|max:20',
+            'description' => 'required',
+
+        ]) -> validate();
 
         $newTypology = Typology::create($newTasksUtente);
         $newTask = Task::findOrFail($newTasksUtente['tasksArray']);
@@ -50,7 +58,16 @@ class TypologyController extends Controller
         return view('pages.editTypology-page', compact('arrayTasks', 'editTypo'));
     }
     public function updateTypology(request $request, $id) {
+
         $typoUtente = $request -> all(); //array che contiene tutti i dati inseriti dall'utente
+
+        Validator::make($typoUtente, [
+
+            'name' => 'required|min:5|max:20',
+            'description' => 'required',
+
+        ]) -> validate();
+
         $updateTypo = Typology::findOrFail($id); //super array che prende i dati inseriti nel db riferenti tramite id a quello selezionato da utente senza relazione quindi senza tasks
         // dd($updateTypo); 
         
